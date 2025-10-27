@@ -67,7 +67,7 @@ lab:
     ```
     az appconfig create --location $location \
         --name $appConfigName \
-        --resource-group $resourceGroup
+        --resource-group $resourceGroup \
         --sku Free
     ```
 

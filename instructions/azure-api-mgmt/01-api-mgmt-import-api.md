@@ -34,21 +34,22 @@ lab:
     az group create --location eastus2 --name myResourceGroup
     ```
 
-1. CLI コマンドで使用する変数をいくつか作成すると、入力作業を軽減できます。 **myLocation** を先ほど選択した値に置き換えます。 APIM 名はグローバルに一意の名前にする必要があります。次のスクリプトによってランダムな文字列が生成されます。 **myEmail** をアクセスできるメール アドレスに置き換えます。
+1. CLI コマンドで使用する変数をいくつか作成すると、入力作業を軽減できます。 **<myLocation>** を前の手順で選択した値に置き換えます。 APIM 名はグローバルに一意の名前にする必要があります。次のスクリプトによってランダムな文字列が生成されます。 **<myEmail>** を、アクセスできるメール アドレスに置き換えます。 **<myResourceGroup>** を前の手順で選択した値に置き換えます。
 
     ```bash
     myApiName=import-apim-$RANDOM
-    myLocation=myLocation
-    myEmail=myEmail
+    myLocation=<myLocation>
+    myEmail=<myEmail>
+    myResourceGroup=<myResourceGroup>
     ```
 
-1. APIM インスタンスを作成します。 **az apim create** コマンドを使用してインスタンスを作成します。 **myResourceGroup** を先ほど選択した値に置き換えます。
+1. APIM インスタンスを作成します。 **az apim create** コマンドを使用してインスタンスを作成します。 
 
     ```bash
     az apim create -n $myApiName \
         --location $myLocation \
         --publisher-email $myEmail  \
-        --resource-group myResourceGroup \
+        --resource-group $myResourceGroup \
         --publisher-name Import-API-Exercise \
         --sku-name Consumption 
     ```
@@ -75,22 +76,10 @@ lab:
 
     | 設定 | 値 | 説明 |
     |--|--|--|
-    | **OpenAPI 仕様** | `https://bigconference.azurewebsites.net/` | API を実装するサービスを参照します。要求は、このアドレスに転送されます。 この値を入力すると、フォームに必要な情報のほとんどが自動的に入力されます。 |
-    | **URL スキーム** | **[HTTPS]** を選択します。 | API が受け入れる HTTP プロトコルのセキュリティ レベルを定義します。 |
+    | **OpenAPI 仕様** | `https://petstore3.swagger.io/api/v3/openapi.json` | API を実装するサービスを参照します。要求は、このアドレスに転送されます。 この値を入力すると、フォームに必要な情報のほとんどが自動的に入力されます。 |
+    | **URL スキーム** | **[HTTPS]** が選択されていることを確認します。 | API が受け入れる HTTP プロトコルのセキュリティ レベルを定義します。 |
 
 1. **［作成］** を選択します
-
-## API 設定を構成する
-
-*Big Conference API* が作成されます。 次に、API 設定を構成します。 
-
-1. メニューの **[設定]** を選択します。
-
-1. **[Web サービス URL]** フィールドに「`https://bigconference.azurewebsites.net/`」と入力します。
-
-1. **[サブスクリプションが必要]** チェックボックスをオフにします。
-
-1. **[保存]** を選択します。
 
 ## API のテスト
 
@@ -98,11 +87,13 @@ API がインポートされて構成されたので、次は API をテスト�
 
 1. メニュー バーの **[テスト]** を選択します。 これにより、API で使用できるすべての操作が表示されます。
 
-1. **Speakers_Get** 操作を検索して選択します。 
+1. **[Find Pets by status]** を探して選択します。 操作を完了するための次の手順について引き続き調査中です。 
 
 1. **[Send]** を選択します。 必要に応じて、ページを下にスクロールして HTTP 応答を表示します。
 
     バックエンドは **200 OK** といくつかのデータで応答します。
+
+1. 別の結果を試すには、**[Template parameters]** セクションで別の**状態**を選択できます。 **[VALUE]** でドロップダウンを選択し、別の状態を選択します。 次に、**[Send]** を選択して新しい結果を表示します。
 
 ## リソースをクリーンアップする
 
