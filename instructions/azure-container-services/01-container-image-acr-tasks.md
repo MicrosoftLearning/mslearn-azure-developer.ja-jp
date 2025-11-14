@@ -16,7 +16,7 @@ lab:
 * 結果を確認する
 * Azure Container Registry でイメージを実行する
 
-この演習の所要時間は約 **20** 分です。
+この演習の所要時間は約**20** 分です。
 
 ## Azure Container Registry  リソースの作成
 
@@ -24,7 +24,7 @@ lab:
 
 1. ページ上部の検索バーの右側にある **[\>_]** ボタンを使用して、Azure portal 内に新しいクラウド シェルを作成します。***Bash*** 環境を選択すること。 Azure portal の下部にあるペインに、Cloud Shell のコマンド ライン インターフェイスが表示されます。 ファイルを保持するストレージ アカウントを選択するように求められた場合は、**[ストレージ アカウントは必要ありません]**、お使いのサブスクリプションを選択し、**[適用]** を選択します。
 
-    > **注**: *PowerShell* 環境を使用するクラウド シェルを以前に作成している場合は、それを ***Bash*** に切り替えること。
+    > **注**:*PowerShell* 環境を使用するクラウド シェルを以前に作成している場合は、それを***Bash*** に切り替えること。
 
 1. この演習に必要なリソースのリソース グループを作成します。 **myResourceGroup** をリソース グループに使用する名前に置き換えます。 必要に応じて、**eastus** を最寄りのリージョンに置き換えることができます。 使用するリソース グループが既にある場合は、次の手順に進みます。
 
@@ -32,7 +32,7 @@ lab:
     az group create --location eastus --name myResourceGroup
     ```
 
-1. 次のコマンドを実行して基本的なコンテナー レジストリを作成します。 レジストリ名は Azure 内で一意にする必要があります。また、5 文字から 50 文字の英数字で構成する必要があります。 **myResourceGroup** を先ほど使用した名前に置き換え、**myContainerRegistry** を一意の値に置き換えます。
+1. 次のコマンドを実行して基本的なコンテナー レジストリを作成します。 レジストリ名は Azure 内で一意にする必要があります。また、5 文字から 50 文字の数字および英小文字で構成する必要があります。 **myResourceGroup** を先ほど使用した名前に置き換え、**myContainerRegistry** を一意の値に置き換えます。
 
     ```bash
     az acr create --resource-group myResourceGroup \
@@ -45,13 +45,13 @@ lab:
 
 次に、Dockerfile に基づいてイメージをビルドしてプッシュします。
 
-1. 次のコマンドを実行して Dockerfile を作成します。 Dockerfile には、Microsoft Container Registry でホストされている *hello-world* イメージを参照する 1 行が含まれています。
+1. 次のコマンドを実行して Dockerfile を作成します。 Dockerfile には、Microsoft Container Registry でホストされている*hello-world* イメージを参照する 1 行が含まれています。
 
     ```bash
     echo FROM mcr.microsoft.com/hello-world > Dockerfile
     ```
 
-1. 次の **az acr build** コマンドを実行してイメージをビルドします。イメージが正常にビルドされたら、それをレジストリにプッシュします。 **myContainerRegistry** を先ほど作成した名前に置き換えます。
+1. 次の**az acr build** コマンドを実行してイメージをビルドします。イメージが正常にビルドされたら、それをレジストリにプッシュします。 **myContainerRegistry** を先ほど作成した名前に置き換えます。
 
     ```bash
     az acr build --image sample/hello-world:v1  \
@@ -111,14 +111,14 @@ lab:
 
 ## ACR でイメージを実行する
 
-1. **az acr run** コマンドを使用して、コンテナー レジストリから *sample/hello-world:v1* コンテナー イメージを実行します。 次の例では、**$Registry** を使用して、コマンドを実行するレジストリを指定します。 **myContainerRegistry** を先ほど使用した名前に置き換えます。
+1. **az acr run** コマンドを使用して、コンテナー レジストリから*sample/hello-world:v1* コンテナー イメージを実行します。 次の例では、**$Registry** を使用して、コマンドを実行するレジストリを指定します。 **myContainerRegistry** を先ほど使用した名前に置き換えます。
 
     ```bash
     az acr run --registry myContainerRegistry \
         --cmd '$Registry/sample/hello-world:v1' /dev/null
     ```
 
-    この例の **cmd** パラメーターでは、既定の構成でコンテナーが実行されますが、**cmd** は他の **docker run** パラメーターや他の **docker** コマンドもサポートしています。 
+    この例の**cmd** パラメーターでは、既定の構成でコンテナーが実行されますが、**cmd** は他の**docker run** パラメーターや他の**docker** コマンドもサポートしています。 
 
     次の出力例は短縮されています。
 
