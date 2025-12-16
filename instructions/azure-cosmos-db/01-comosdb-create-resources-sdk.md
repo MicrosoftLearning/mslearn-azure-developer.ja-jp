@@ -42,7 +42,7 @@ lab:
     accountName=cosmosexercise$RANDOM
     ```
 
-1. 次のコマンドを実行して Azure Cosmos DB アカウントを作成します。各アカウント名は一意にする必要があります。 
+1. 次のコマンドを実行して Azure Cosmos DB アカウントを作成します。各アカウント名は一意にする必要があります。
 
     ```
     az cosmosdb create --name $accountName \
@@ -120,46 +120,54 @@ lab:
     code Program.cs
     ```
 
-1. 既存のコードを次のコード スニペットに置き換えます。 
+1. 既存のコードを次のコード スニペットに置き換えます。
 
-    このコードは、アプリ全体の構造を示しています。 コード内のコメントを確認して、しくみを理解してください。 アプリケーションを完成させるには、演習の後半で、指定された領域にコードを追加します。 
+    このコードは、アプリ全体の構造を示しています。 コード内のコメントを確認して、しくみを理解してください。 アプリケーションを完成させるには、演習の後半で、指定された領域にコードを追加します。
 
     ```csharp
     using Microsoft.Azure.Cosmos;
     using dotenv.net;
-    
+
     string databaseName = "myDatabase"; // Name of the database to create or use
     string containerName = "myContainer"; // Name of the container to create or use
-    
-    // Load environment variables from .env file
-    DotEnv.Load();
-    var envVars = DotEnv.Read();
-    string cosmosDbAccountUrl = envVars["DOCUMENT_ENDPOINT"];
-    string accountKey = envVars["ACCOUNT_KEY"];
-    
-    if (string.IsNullOrEmpty(cosmosDbAccountUrl) || string.IsNullOrEmpty(accountKey))
+
+    try
     {
-        Console.WriteLine("Please set the DOCUMENT_ENDPOINT and ACCOUNT_KEY environment variables.");
+        // Load environment variables from .env file
+        DotEnv.Load();
+        var envVars = DotEnv.Read();
+        cosmosDbAccountUrl = envVars["DOCUMENT_ENDPOINT"];
+        accountKey = envVars["ACCOUNT_KEY"];
+
+        if (string.IsNullOrEmpty(cosmosDbAccountUrl) || string.IsNullOrEmpty(accountKey))
+        {
+            Console.WriteLine("Please set the DOCUMENT_ENDPOINT and ACCOUNT_KEY environment variables.");
+            return;
+        }
+    }
+    catch (KeyNotFoundException ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}");
         return;
     }
-    
+
     // CREATE THE COSMOS DB CLIENT USING THE ACCOUNT URL AND KEY
-    
-    
+
+
     try
     {
         // CREATE A DATABASE IF IT DOESN'T ALREADY EXIST
-    
-    
+
+
         // CREATE A CONTAINER WITH A SPECIFIED PARTITION KEY
-    
-    
+
+
         // DEFINE A TYPED ITEM (PRODUCT) TO ADD TO THE CONTAINER
-    
-    
+
+
         // ADD THE ITEM TO THE CONTAINER
-    
-    
+
+
     }
     catch (CosmosException ex)
     {
@@ -173,7 +181,7 @@ lab:
         // Log the error message for debugging
         Console.WriteLine($"Error: {ex.Message}");
     }
-    
+
     // This class represents a product in the Cosmos DB container
     public class Product
     {
@@ -185,7 +193,7 @@ lab:
 
 次に、プロジェクトの指定された領域にコードを追加して、クライアント、データベース、コンテナーを作成し、コンテナーにサンプル項目を追加します。
 
-### コードの追加によりクライアントを作成して操作を実行する 
+### コードの追加によりクライアントを作成して操作を実行する
 
 1. **// CREATE THE COSMOS DB CLIENT USING THE ACCOUNT URL AND KEY** コメントの後のスペースに次のコードを追加します。 このコードにより、お使いの Azure Cosmos DB アカウントへの接続に使用するクライアントを定義します。
 
@@ -196,16 +204,16 @@ lab:
     );
     ```
 
-    >注: *Azure Identity* ライブラリの **DefaultAzureCredential** を使用することをお勧めします。 サブスクリプションの設定方法によっては、Azure で追加の構成要件が必要になる場合があります。 
+    >注: *Azure Identity* ライブラリの **DefaultAzureCredential** を使用することをお勧めします。 サブスクリプションの設定方法によっては、Azure で追加の構成要件が必要になる場合があります。
 
-1. **// CREATE A DATABASE IF IT DOESN'T ALREADY EXIST** コメントの後のスペースに次のコードを追加します。 
+1. **// CREATE A DATABASE IF IT DOESN'T ALREADY EXIST** コメントの後のスペースに次のコードを追加します。
 
     ```csharp
     Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
     Console.WriteLine($"Created or retrieved database: {database.Id}");
     ```
 
-1. **// CREATE A CONTAINER WITH A SPECIFIED PARTITION KEY** コメントの後のスペースに次のコードを追加します。 
+1. **// CREATE A CONTAINER WITH A SPECIFIED PARTITION KEY** コメントの後のスペースに次のコードを追加します。
 
     ```csharp
     Container container = await database.CreateContainerIfNotExistsAsync(
@@ -226,7 +234,7 @@ lab:
     };
     ```
 
-1. **// ADD THE ITEM TO THE CONTAINER** コメントの後のスペースに次のコードを追加します。 
+1. **// ADD THE ITEM TO THE CONTAINER** コメントの後のスペースに次のコードを追加します。
 
     ```csharp
     ItemResponse<Product> createResponse = await container.CreateItemAsync(
