@@ -7,7 +7,7 @@ lab:
 
 # MSAL.NET を使用して対話型認証を実装する
 
-この演習では、Microsoft Entra ID にアプリケーションを登録し、MSAL.NET を使用して対話型認証を実行し、Microsoft Graph のアクセス トークンを取得する .NET コンソール アプリケーションを作成します。 認証スコープを構成し、ユーザーの同意を処理する方法について説明し、後続の実行のためにトークンがキャッシュされるしくみを確認します。 
+この演習では、Microsoft Entra ID にアプリケーションを登録し、MSAL.NET を使用して対話型認証を実行し、Microsoft Graph のアクセス トークンを取得する .NET コンソール アプリケーションを作成します。 認証スコープを構成し、ユーザーの同意を処理する方法について説明し、後続の実行のためにトークンがキャッシュされるしくみを確認します。
 
 この演習で実行されるタスク:
 
@@ -33,22 +33,22 @@ lab:
 
 1. お使いのブラウザーで Azure portal ([https://portal.azure.com](https://portal.azure.com)) に移動し、メッセージに応じて Azure 資格情報を使用してサインインします。
 
-1. ポータルで **[アプリの登録]** を検索して選択します。 
+1. ポータルで **[アプリの登録]** を検索して選択します。
 
 1. **[+ 新しい登録]** を選択し、**[アプリケーションの登録]** ページが表示されたら、アプリケーションの登録情報を入力します。
 
-    | フィールド | [値] |
+    | フィールド | 値 |
     |--|--|
     | **名前** | 「`myMsalApplication`」と入力します  |
     | **サポートされているアカウントの種類** | **[この組織ディレクトリのみに含まれるアカウント]** を選択します。 |
     | **リダイレクト URI (省略可能)** | **[パブリック クライアント/ネイティブ (モバイルとデスクトップ)]** を選択し、右側のボックスに「`http://localhost`」と入力します。 |
 
-1. **登録** を選択します。 Microsoft Entra ID によってアプリケーションに一意のアプリケーション (クライアント) ID が割り当てられ、アプリケーションの「**概要**」ページが表示されます。 
+1. **登録** を選択します。 Microsoft Entra ID によってアプリケーションに一意のアプリケーション (クライアント) ID が割り当てられ、アプリケーションの「**概要**」ページが表示されます。
 
 1. **[概要]** ページの **[基本情報]** セクションで、**[アプリケーション (クライアント) ID]** と **[ディレクトリ (テナント) ID]** をメモします。 アプリケーションにはこの情報が必要です。
 
     ![コピーするフィールドの位置を示すスクリーンショット。](./media/01-app-directory-id-location.png)
- 
+
 ## トークンを取得する .NET コンソール アプリを作成する
 
 必要なリソースが Azure にデプロイされたら、次の手順はコンソール アプリケーションの設定です。 次の手順はローカル環境で実行されます。
@@ -74,7 +74,7 @@ lab:
 
 ### コンソール アプリケーションを構成する
 
-このセクションでは、先ほどメモしたシークレットを保持する **.env** ファイルを作成し、編集します。 
+このセクションでは、先ほどメモしたシークレットを保持する **.env** ファイルを作成し、編集します。
 
 1. **[ファイル] > [新しいファイル]** を選択し、プロジェクト フォルダーに *.env* というファイルを作成します。
 
@@ -94,22 +94,22 @@ lab:
     ```csharp
     using Microsoft.Identity.Client;
     using dotenv.net;
-    
+
     // Load environment variables from .env file
     DotEnv.Load();
     var envVars = DotEnv.Read();
-    
+
     // Retrieve Azure AD Application ID and tenant ID from environment variables
     string _clientId = envVars["CLIENT_ID"];
     string _tenantId = envVars["TENANT_ID"];
-    
-    // ADD CODE TO DEFINE SCOPES AND CREATE CLIENT 
-    
-    
-    
+
+    // ADD CODE TO DEFINE SCOPES AND CREATE CLIENT
+
+
+
     // ADD CODE TO ACQUIRE AN ACCESS TOKEN
-    
-    
+
+
     ```
 
 1. **Ctrl + S** キーを押して変更内容を保存します。
@@ -121,7 +121,7 @@ lab:
     ```csharp
     // Define the scopes required for authentication
     string[] _scopes = { "User.Read" };
-    
+
     // Build the MSAL public client application with authority and redirect URI
     var app = PublicClientApplicationBuilder.Create(_clientId)
         .WithAuthority(AzureCloudInstance.AzurePublic, _tenantId)
@@ -147,7 +147,7 @@ lab:
         result = await app.AcquireTokenInteractive(_scopes)
                     .ExecuteAsync();
     }
-    
+
     // Output the acquired access token to the console
     Console.WriteLine($"Access Token:\n{result.AccessToken}");
     ```
@@ -156,7 +156,7 @@ lab:
 
 ## アプリケーションの実行
 
-アプリが完成したので、実行してみましょう。 
+アプリが完成したので、実行してみましょう。
 
 1. 次のコマンドを実行してアプリケーションを起動します。
 
@@ -177,7 +177,7 @@ lab:
     eyJ0eXAiOiJKV1QiLCJub25jZSI6IlZF.........
     ```
 
-1. アプリケーションをもう一度起動すると、"**要求されているアクセス許可**" 通知は表示されなくなります。 先ほど付与したアクセス許可はキャッシュされました。
+1. アプリケーションをもう一度起動すると、"**要求されているアクセス許可**" 通知は表示されなくなります。 先ほど付与したアクセス許可はキャッシュされました。 **注:**  複数のアカウントをお持ちの場合、一部のアカウント構成では、通知が再び表示される場合があります。
 
 ## リソースをクリーンアップする
 
