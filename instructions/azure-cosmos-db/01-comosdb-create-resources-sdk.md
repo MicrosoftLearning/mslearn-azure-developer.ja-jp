@@ -124,72 +124,64 @@ lab:
 
     このコードは、アプリ全体の構造を示しています。 コード内のコメントを確認して、しくみを理解してください。 アプリケーションを完成させるには、演習の後半で、指定された領域にコードを追加します。
 
-    ```csharp
-    using Microsoft.Azure.Cosmos;
-    using dotenv.net;
+```csharp
+using Microsoft.Azure.Cosmos;
+using dotenv.net;
 
-    string databaseName = "myDatabase"; // Name of the database to create or use
-    string containerName = "myContainer"; // Name of the container to create or use
+string databaseName = "myDatabase"; // Name of the database to create or use
+string containerName = "myContainer"; // Name of the container to create or use
 
-    try
-    {
-        // Load environment variables from .env file
-        DotEnv.Load();
-        var envVars = DotEnv.Read();
-        cosmosDbAccountUrl = envVars["DOCUMENT_ENDPOINT"];
-        accountKey = envVars["ACCOUNT_KEY"];
+// Load environment variables from .env file
+DotEnv.Load();
+var envVars = DotEnv.Read();
+string cosmosDbAccountUrl = envVars["DOCUMENT_ENDPOINT"];
+string accountKey = envVars["ACCOUNT_KEY"];
 
-        if (string.IsNullOrEmpty(cosmosDbAccountUrl) || string.IsNullOrEmpty(accountKey))
-        {
-            Console.WriteLine("Please set the DOCUMENT_ENDPOINT and ACCOUNT_KEY environment variables.");
-            return;
-        }
-    }
-    catch (KeyNotFoundException ex)
-    {
-        Console.WriteLine($"Error: {ex.Message}");
-        return;
-    }
+if (string.IsNullOrEmpty(cosmosDbAccountUrl) || string.IsNullOrEmpty(accountKey))
+{
+    Console.WriteLine("Please set the DOCUMENT_ENDPOINT and ACCOUNT_KEY environment variables.");
+    return;
+}
 
-    // CREATE THE COSMOS DB CLIENT USING THE ACCOUNT URL AND KEY
+// CREATE THE COSMOS DB CLIENT USING THE ACCOUNT URL AND KEY
 
 
-    try
-    {
-        // CREATE A DATABASE IF IT DOESN'T ALREADY EXIST
+try
+{
+    // CREATE A DATABASE IF IT DOESN'T ALREADY EXIST
 
 
-        // CREATE A CONTAINER WITH A SPECIFIED PARTITION KEY
+    // CREATE A CONTAINER WITH A SPECIFIED PARTITION KEY
 
 
-        // DEFINE A TYPED ITEM (PRODUCT) TO ADD TO THE CONTAINER
+    // DEFINE A TYPED ITEM (PRODUCT) TO ADD TO THE CONTAINER
 
 
-        // ADD THE ITEM TO THE CONTAINER
+    // ADD THE ITEM TO THE CONTAINER
 
 
-    }
-    catch (CosmosException ex)
-    {
-        // Handle Cosmos DB-specific exceptions
-        // Log the status code and error message for debugging
-        Console.WriteLine($"Cosmos DB Error: {ex.StatusCode} - {ex.Message}");
-    }
-    catch (Exception ex)
-    {
-        // Handle general exceptions
-        // Log the error message for debugging
-        Console.WriteLine($"Error: {ex.Message}");
-    }
+}
+catch (CosmosException ex)
+{
+    // Handle Cosmos DB-specific exceptions
+    // Log the status code and error message for debugging
+    Console.WriteLine($"Cosmos DB Error: {ex.StatusCode} - {ex.Message}");
+}
+catch (Exception ex)
+{
+    // Handle general exceptions
+    // Log the error message for debugging
+    Console.WriteLine($"Error: {ex.Message}");
+}
 
-    // This class represents a product in the Cosmos DB container
-    public class Product
-    {
-        public string? id { get; set; }
-        public string? name { get; set; }
-        public string? description { get; set; }
-    }
-    ```
+// This class represents a product in the Cosmos DB container
+public class Product
+{
+    public string? id { get; set; }
+    public string? name { get; set; }
+    public string? description { get; set; }
+}
+```
 
 次に、プロジェクトの指定された領域にコードを追加して、クライアント、データベース、コンテナーを作成し、コンテナーにサンプル項目を追加します。
 
