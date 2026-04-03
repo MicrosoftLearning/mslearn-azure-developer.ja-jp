@@ -3,6 +3,13 @@ lab:
   topic: Azure events and messaging
   title: Azure Queue Storage からメッセージを送受信する
   description: .NET Azure.StorageQueues SDK を使用して、Azure Queue Storage からメッセージを送信する方法について説明します。
+  duration: 30 minutes
+  level: 500
+  islab: true
+  primarytopics:
+    - .NET
+    - Azure
+    - Azure Queue Storage
 ---
 
 # Azure Queue Storage からメッセージを送受信する

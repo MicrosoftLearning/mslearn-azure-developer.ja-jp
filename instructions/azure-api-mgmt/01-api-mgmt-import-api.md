@@ -3,6 +3,12 @@ lab:
   topic: Azure API Management
   title: Azure API Management を使用して API をインポートおよび構成する
   description: OpenAPI 仕様に準拠した API をインポート、発行、テストする方法について説明します。
+  duration: 20 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure API Management
 ---
 
 # Azure API Management を使用して API をインポートおよび構成する

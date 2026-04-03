@@ -3,6 +3,13 @@ lab:
   topic: Azure events and messaging
   title: Azure Event Hubs からイベントを送信および取得する
   description: .NET Azure.Messaging.EventHubs SDK を使用して Azure Event Hubs からイベントを送信および取得する方法について説明します。
+  duration: 30 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - .NET
+    - Azure
+    - Azure Event Hubs
 ---
 
 # Azure Event Hubs からイベントを送信および取得する

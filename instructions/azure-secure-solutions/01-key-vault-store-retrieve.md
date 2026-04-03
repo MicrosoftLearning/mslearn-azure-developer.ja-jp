@@ -3,6 +3,12 @@ lab:
   topic: Secure solutions in Azure
   title: Azure Key Vault からのシークレットの作成と取得に関するページ
   description: Azure CLI を使用して、またはプログラムで、キー コンテナーを作成し、シークレットを作成および取得する方法について説明します。
+  duration: 30 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Key Vault
 ---
 
 # Azure Key Vault からのシークレットの作成と取得に関するページ

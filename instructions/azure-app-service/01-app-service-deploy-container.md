@@ -3,6 +3,12 @@ lab:
   topic: Azure App Service
   title: コンテナー化されたアプリを Azure App Service にデプロイする
   description: Azure App Service にコンテナー化されたアプリをデプロイする方法を学習します。
+  duration: 15 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure App Service
 ---
 
 # コンテナー化されたアプリを Azure App Service にデプロイする

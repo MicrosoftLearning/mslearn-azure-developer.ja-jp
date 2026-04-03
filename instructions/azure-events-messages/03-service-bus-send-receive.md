@@ -3,6 +3,13 @@ lab:
   topic: Azure events and messaging
   title: Azure Service Bus からメッセージを送受信する
   description: .NET Azure.Messaging.ServiceBus SDK を使用して Azure Service Bus からメッセージを送信する方法について説明します。
+  duration: 30 minutes
+  level: 500
+  islab: true
+  primarytopics:
+    - .NET
+    - Azure
+    - Azure Service Bus
 ---
 
 # Azure Service Bus からメッセージを送受信する

@@ -3,6 +3,12 @@ lab:
   topic: Azure App Service
   title: Azure App Service 内でデプロイ スロットを入れ替える
   description: Azure App Service 内でデプロイ スロットを入れ替える方法を学習します。 この演習では、単純なアプリを App Service にデプロイして小さな変更を加え、ステージング スロットにデプロイします。最後にスロットを入れ替えて、更新されたアプリが運用環境に入るようにします。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure App Service
 ---
 
 # Azure App Service 内でデプロイ スロットを入れ替える

@@ -3,6 +3,12 @@ lab:
   topic: Azure container services
   title: Azure CLI コマンドを使用して Azure Container Instances にコンテナーをデプロイする
   description: Azure CLI コマンドを使用してコンテナーを Azure Container Instances にデプロイする方法について説明します。
+  duration: 15 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Container Instances
 ---
 
 # Azure CLI コマンドを使用して Azure Container Instances にコンテナーをデプロイする

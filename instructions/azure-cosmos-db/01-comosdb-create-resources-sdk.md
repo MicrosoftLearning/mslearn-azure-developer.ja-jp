@@ -3,6 +3,13 @@ lab:
   topic: Azure Cosmos DB
   title: .NET を使用して Azure Cosmos DB for NoSQL にリソースを作成する
   description: Microsoft .NET SDK v3 を使用して Azure Cosmos DB 内でデータベース リソースとコンテナー リソースを作成する方法について説明します。
+  duration: 30 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - .NET
+    - Azure
+    - Azure Cosmos DB
 ---
 
 # .NET を使用して Azure Cosmos DB for NoSQL にリソースを作成する

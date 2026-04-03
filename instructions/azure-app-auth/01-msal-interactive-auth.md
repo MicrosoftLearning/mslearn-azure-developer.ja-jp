@@ -3,6 +3,11 @@ lab:
   topic: Azure authentication and authorization
   title: MSAL.NET を使用して対話型認証を実装する
   description: MSAL.NET SDK を使用して対話型認証を実装し、トークンを取得する方法について説明します。
+  duration: 15 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - .NET
 ---
 
 # MSAL.NET を使用して対話型認証を実装する

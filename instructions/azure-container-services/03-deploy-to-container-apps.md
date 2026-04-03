@@ -3,6 +3,12 @@ lab:
   topic: Azure container services
   title: Azure CLI を使用して Azure Container Apps にコンテナーをデプロイする
   description: Azure CLI コマンドを使用してセキュリティで保護された Azure Container Apps 環境を作成し、コンテナーをデプロイする方法について説明します。
+  duration: 15 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Container Apps
 ---
 
 # Azure CLI を使用して Azure Container Apps にコンテナーをデプロイする
