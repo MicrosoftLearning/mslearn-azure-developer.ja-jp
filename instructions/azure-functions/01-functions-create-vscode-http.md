@@ -3,6 +3,13 @@ lab:
   topic: Azure Functions
   title: Visual Studio Code で Azure 関数を作成する
   description: HTTP トリガーを使用して Azure 関数を作成する方法について説明します。 Visual Studio Code でコードをローカルに作成しテストしたら、その関数を Azure にデプロイします。
+  duration: 15 minutes
+  level: 200
+  islab: true
+  primarytopics:
+    - Azure
+    - Visual Studio
+    - Visual Studio Code
 ---
 
 # Visual Studio Code で Azure 関数を作成する

@@ -3,6 +3,9 @@ lab:
   topic: Application Insights
   title: 自動インストルメンテーションを使用してアプリケーションを監視する
   description: '自動インストルメンテーションを構成することで、コードを変更せずに Application Insights でアプリケーションを監視する方法について説明します '
+  duration: 20 minutes
+  level: 300
+  islab: true
 ---
 
 # 自動インストルメンテーションを使用してアプリケーションを監視する

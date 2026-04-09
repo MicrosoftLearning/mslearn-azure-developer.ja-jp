@@ -3,6 +3,11 @@ lab:
   topic: Azure authentication and authorization
   title: Microsoft Graph SDK を使用してユーザー プロファイル情報を取得する
   description: Microsoft Graph からユーザー プロファイル情報を取得する方法について説明します。
+  duration: 15 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Microsoft Graph
 ---
 
 # Microsoft Graph SDK を使用してユーザー プロファイル情報を取得する
@@ -36,7 +41,7 @@ lab:
 
 1. **[+ 新しい登録]** を選択し、**[アプリケーションの登録]** ページが表示されたら、アプリケーションの登録情報を入力します。
 
-    | フィールド | [値] |
+    | フィールド | 値 |
     |--|--|
     | **名前** | 「`myGraphApplication`」と入力します  |
     | **サポートされているアカウントの種類** | **[この組織ディレクトリのみに含まれるアカウント]** を選択します。 |

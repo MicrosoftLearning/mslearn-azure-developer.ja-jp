@@ -3,6 +3,12 @@ lab:
   topic: Azure container services
   title: Azure Container Registry タスクを使用してコンテナー イメージをビルドして実行する
   description: Azure CLI コマンドを使用して、Azure Container Registry タスクでコンテナー イメージをビルドおよび実行する方法について説明します。
+  duration: 20 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Container Registry
 ---
 
 # Azure Container Registry タスクを使用してコンテナー イメージをビルドして実行する

@@ -3,6 +3,12 @@ lab:
   topic: Azure events and messaging
   title: Azure Event Grid を使用してイベントをカスタム エンドポイントにルーティングする
   description: Azure Event Grid を使用してイベントをカスタム エンドポイントにルーティングする方法について説明します。
+  duration: 30 minutes
+  level: 300
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure Event Grid
 ---
 
 # Azure Event Grid を使用してイベントをカスタム エンドポイントにルーティングする

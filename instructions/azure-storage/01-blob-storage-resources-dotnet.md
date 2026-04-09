@@ -3,6 +3,13 @@ lab:
   topic: Azure Storage
   title: .NET クライアント ライブラリを使用して BLOB ストレージ リソースを作成する
   description: Azure Storage .NET クライアント ライブラリを使用してコンテナーを作成し、BLOB をアップロードして一覧表示し、コンテナーを削除する方法について説明します。
+  duration: 30 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - .NET
+    - Azure
+    - Azure Storage
 ---
 
 # .NET クライアント ライブラリを使用して BLOB ストレージ リソースを作成する

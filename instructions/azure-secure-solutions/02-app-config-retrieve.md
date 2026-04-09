@@ -3,6 +3,12 @@ lab:
   topic: Secure solutions in Azure
   title: Azure App Configuration から構成設定を取得する
   description: Azure App Configuration リソースを作成し、Azure CLI を使用して構成情報を設定する方法について説明します。 次に、**ConfigurationBuilder** を使用してアプリケーションの設定を取得します。
+  duration: 15 minutes
+  level: 400
+  islab: true
+  primarytopics:
+    - Azure
+    - Azure App Configuration
 ---
 
 # Azure App Configuration から構成設定を取得する
